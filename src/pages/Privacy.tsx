@@ -53,7 +53,7 @@ export default function Contact() {
                     
                         <div className="bg-white rounded-lg shadow-md p-6 md:p-8 lg:p-12">
                             <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
-                            <p className="text-sm md:text-base lg:text-lg leading-relaxed mb-6">Effective Date: [Insert Date]<br/>
+                            <p className="text-sm md:text-base lg:text-lg leading-relaxed mb-6">
 
                                 At interio.live, we take your privacy seriously. This Privacy Policy outlines how we collect, use, and protect your personal information when you visit our website, interact with our services, or use any of our products. We are committed to maintaining the confidentiality and security of your personal data.<br/>
 

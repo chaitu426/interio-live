@@ -53,7 +53,7 @@ export default function Contact() {
           
             <div className="bg-white rounded-lg shadow-md p-6 md:p-8 lg:p-12">
               <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
-              <p className="text-sm md:text-base lg:text-lg leading-relaxed mb-6">Effective Date: [Insert Date]<br/>
+              <p className="text-sm md:text-base lg:text-lg leading-relaxed mb-6">
 
                 These Terms & Conditions (“Terms”) govern your use of the website interio.live (“the Site”) and the services provided by interio.live. By accessing or using our services, you agree to be bound by these Terms.<br/>
 
@@ -86,9 +86,7 @@ export default function Contact() {
                 <span className='font-semibold'>9. Termination</span><br/>
                 We may suspend or terminate your access to the Site if we believe you have violated these Terms. Upon termination, all rights granted to you under these Terms will cease immediately.<br/>
 
-                <span className='font-semibold'>10. Governing Law and Dispute Resolution</span><br/>
-                These Terms are governed by the laws of [Your Country]. Any disputes arising from your use of the Site or services will be resolved through binding arbitration in [Location].<br/>
-
+                
                 <span className='font-semibold'>11. Changes to Terms</span><br/>
                 We reserve the right to update these Terms at any time. Any changes will be posted on this page with an updated effective date. Please review these Terms regularly.</p>
              
