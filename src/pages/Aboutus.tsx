@@ -1,23 +1,13 @@
 
-
-
-
 'use client';
 
 import { motion } from 'framer-motion';
-import Button from '../components/ui/Button';
-import demo from '../assets/demo.jpg';
+
+const demo = "/images/demo.jpg";
+
 
 export default function Contact() {
-    const handleWhatsAppRedirect = () => {
-        const message = encodeURIComponent(
-            "Hello, I'm interested in your interior design services."
-        );
-        window.open(
-            `https://wa.me/${import.meta.env.VITE_MOBILE_NO}?text=${message}`,
-            '_blank'
-        );
-    };
+
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -109,12 +99,7 @@ export default function Contact() {
                             Comprehensive Services: From initial consultation to final installation, we handle all aspects of the design process, ensuring a smooth and seamless experience.<br />
 
                             Transparency and Integrity: We believe in clear communication and full transparency throughout the design process, keeping you informed every step of the way.</p>
-                        <Button
-                            onClick={handleWhatsAppRedirect}
-                            className="w-full md:w-auto px-6 py-2 text-center"
-                        >
-                            Chat with Us on WhatsApp
-                        </Button>
+
                     </div>
                 </div>
             </section>

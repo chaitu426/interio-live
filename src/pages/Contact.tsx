@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion'
 import Button from '../components/ui/Button';
 import { Phone, Mail, MapPin } from 'lucide-react'
-import demo from "../assets/demo.jpg"
+const demo = "/images/demo.jpg";
+
 
 
 export default function Contact() {

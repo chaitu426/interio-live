@@ -4,17 +4,17 @@ import "../index.css";
 
 const slides = [
   {
-    url: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80',
+    url: './images/degine2.webp',
     title: 'Modern Living Room',
     description: 'A beautifully designed modern living room with elegant furniture.',
   },
   {
-    url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80',
+    url: './images/degine1.webp',
     title: 'Luxury Kitchen',
     description: 'A luxurious kitchen with high-end appliances and decor.',
   },
   {
-    url: 'https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&q=80',
+    url: './images/degine3.webp',
     title: 'Cozy Bedroom',
     description: 'A cozy and comfortable bedroom perfect for relaxation.',
   },

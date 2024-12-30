@@ -2,14 +2,11 @@
 
 import { motion } from 'framer-motion'
 
-import demo from "../assets/demo.jpg"
+const demo = "/images/demo.jpg";
+
 
 
 export default function Contact() {
-    const handleWhatsAppRedirect = () => {
-        const message = encodeURIComponent("Hello, I'm interested in your interior design services.")
-        window.open(`https://wa.me/${import.meta.env.VITE_MOBILE_NO}?text=${message}`, '_blank')
-    }
 
     return (
         <div className="flex flex-col min-h-screen">
