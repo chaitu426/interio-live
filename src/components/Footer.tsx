@@ -2,6 +2,13 @@ import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // For smooth scrolling
+    });
+  };
+
   return (
     <footer className="bg-black text-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -20,35 +27,31 @@ export default function Footer() {
             <li>interio.livesupp0rt@gmail.com</li>
             <li>+91 (555) 987-6543</li>
             <li>
-               Interio.live,<br />
+              Interio.live,
+              <br />
               India, MH 10001
             </li>
           </ul>
-         
         </div>
 
         {/* Regional Office */}
         <div>
           <h4 className="text-lg font-semibold mb-4">LINKS</h4>
-          <ul className="space-y-2  text-gray-400">
-            <Link to="/contact">
-            <li>ContactUs</li>
+          <ul className="space-y-2 text-gray-400">
+            <Link to="/contact" onClick={scrollToTop}>
+              <li>Contact Us</li>
             </Link>
-            <Link to="/aboutus">
-            <li className='mt-2'>AboutUs</li>
+            <Link to="/aboutus" onClick={scrollToTop}>
+              <li className="mt-2">About Us</li>
             </Link>
-            <Link to="/privacy">
-            <li className='mt-2'>Privacy Policy</li>
+            <Link to="/privacy" onClick={scrollToTop}>
+              <li className="mt-2">Privacy Policy</li>
             </Link>
-            <Link to="/terms">
-            <li className='mt-2'>Terms&Conditions</li>
+            <Link to="/terms" onClick={scrollToTop}>
+              <li className="mt-2">Terms & Conditions</li>
             </Link>
-
           </ul>
-         
         </div>
-
-        
 
         {/* Newsletter and Social Links */}
         <div>
@@ -75,18 +78,19 @@ export default function Footer() {
               <a href="#" className="text-gray-400 hover:text-white transition">
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="https://www.instagram.com/interio.live?igsh=MXJrNHpxcG5pOG8xMA==" className="text-gray-400 hover:text-white transition">
+              <a
+                href="https://www.instagram.com/interio.live?igsh=MXJrNHpxcG5pOG8xMA=="
+                className="text-gray-400 hover:text-white transition"
+              >
                 <Instagram className="h-6 w-6" />
               </a>
-             
               <a href="#" className="text-gray-400 hover:text-white transition">
                 <Linkedin className="h-6 w-6" />
               </a>
             </div>
-            <div className='mt-5'>
+            <div className="mt-5">
               <p>Copyright © 2025 interio.live</p>
             </div>
-            
           </div>
         </div>
       </div>
