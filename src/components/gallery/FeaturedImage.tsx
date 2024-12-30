@@ -44,6 +44,7 @@ export default function FeaturedImage({
           src={imageUrl}
           alt={title}
           className="w-full h-48 object-cover transform transition duration-300 hover:scale-110 cursor-pointer"
+          loading="lazy" // Lazy loading added here
           onClick={handleOpenModal}
         />
         <div className="p-4 text-center">
@@ -74,6 +75,7 @@ export default function FeaturedImage({
                   src={selectedImage}
                   alt={title}
                   className="w-full h-64 md:h-80 object-cover rounded-lg"
+                  loading="lazy" // Lazy loading added here
                 />
                 <div className="flex space-x-2 overflow-x-auto mt-4">
                   {[imageUrl, ...additionalImages].map((image, index) => (
@@ -85,6 +87,7 @@ export default function FeaturedImage({
                       className={`w-16 h-16 object-cover rounded cursor-pointer border ${
                         selectedImage === image ? "border-blue-500" : "border-gray-300"
                       }`}
+                      loading="lazy" // Lazy loading added here for thumbnails
                     />
                   ))}
                 </div>

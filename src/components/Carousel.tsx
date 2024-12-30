@@ -43,7 +43,7 @@ export default function ModernCarousel() {
     <div className="relative h-screen w-full overflow-hidden">
       {/* Slide Container */}
       <div
-        className="flex transition-transform duration-1000 ease-[cubic-bezier(0.25, 1, 0.5, 1)]"
+        className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (
