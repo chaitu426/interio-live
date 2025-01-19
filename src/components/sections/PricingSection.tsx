@@ -4,7 +4,7 @@ const pricingPlans = [
   {
     title: 'Basic',
     subtitle: 'Perfect for small spaces',
-    price: '84,016',
+    price: '81,016',
     features: [
       { text: '2 room designs' },
       { text: '3D visualization' },
