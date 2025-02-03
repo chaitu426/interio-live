@@ -31,11 +31,11 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           {/* Navigation Links */}
           <nav className="space-y-4">
             <Link
-              to="/"
+              to="/portfolio"
               className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-gray-800 rounded transition"
               onClick={onClose}
             >
-              Home
+              portfolio
             </Link>
             <Link
               to="/contact"

@@ -8,6 +8,8 @@ import Aboutus from './pages/Aboutus';
 import Owrwork from './pages/Owrwork';
 import Privacy from "./pages/Privacy";
 import Terms from './pages/Terms';
+import Portfolio from './pages/Portfolio';
+
 
 
 export default function App() {
@@ -24,6 +26,7 @@ export default function App() {
           <Route path="/owrwork" element={<Owrwork />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
         <Footer />
       </div>

@@ -26,10 +26,10 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center justify-right  space-x-8">
             <Link
-              to="/"
+              to="/portfolio"
               className="text-gray-800 hover:text-gray-900 font-neutral-50 transition duration-300"
             >
-              Home
+              portfolio
             </Link>
             <Link
               to="/contact"

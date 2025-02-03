@@ -46,7 +46,7 @@ export default function PricingSection() {
   return (
     <section className="py-4 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">Our Pricing</h2>
+        <h2 className="text-4xl font-bold text-center mt-6 mb-12">Our Pricing</h2>
         <h2 className="text-xl font-normal text-center mb-12">Customizable according to the order</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pricingPlans.map((plan, index) => (
