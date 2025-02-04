@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Dialog, DialogContent } from "./ui/dialog";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { LucideShieldCheck } from "lucide-react"; // Trust icon
 
 const staticImages = [
-  { id: "1", url: "/images/badroom.webp", alt: "Beautiful landscape with mountains and a lake" },
+  { id: "1", url: "/images/badroom.webp", alt: "Beautiful landscape with mountains and a lake",  },
   { id: "2", url: "/images/degine1.webp", alt: "Busy city street at night with bright lights" },
   { id: "21", url: "/images/image (15).png", alt: "Close-up of a majestic lion" },
   { id: "22", url: "/images/image (16).png", alt: "Modern smartphone with app icons" },
@@ -53,48 +53,47 @@ const staticImages = [
 
 export default function ImageGrid() {
   const [selectedImage, setSelectedImage] = useState<{ id: string; url: string; alt: string } | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleImageClick = (image: { id: string; url: string; alt: string }) => {
-    setSelectedImage(image);
-  };
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
+  const handleImageClick = (image: { id: string; url: string; alt: string }) => setSelectedImage(image);
+
+  const closeModal = () => setSelectedImage(null);
+
+  const similarImages = useMemo(
+    () => staticImages.filter((img) => selectedImage && img.id !== selectedImage.id).slice(0, 3),
+    [selectedImage]
+  );
 
   return (
     <>
-      {/* Hero Section */}
       <div className="mb-8 text-center">
-        <motion.h1
-          className="text-4xl font-bold text-gray-800 mb-4"
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-         Our Creative Works
+        <motion.h1 className="text-4xl font-bold text-gray-800 mb-4">
+          Our Creative Works
         </motion.h1>
-        <motion.p
-          className="text-gray-600 max-w-2xl mx-auto"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          Explore a collection of my design inspirations, photography, and creative concepts.
+        <motion.p className="text-gray-600 max-w-2xl mx-auto">
+          Explore a collection of design inspirations, photography, and creative concepts.
         </motion.p>
       </div>
 
-      {/* Staggered Image Grid */}
-      <motion.div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 ">
-        
-        {staticImages.map((image) => (
-          
-          <LazyImageCard key={image.id} image={image} onClick={() => handleImageClick(image)} />
-        ))}
-        
-      </motion.div>
+      {isLoading ? (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {[...Array(8)].map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
+        </div>
+      ) : (
+        <motion.div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {staticImages.map((image) => (
+            <LazyImageCard key={image.id} image={image} onClick={() => handleImageClick(image)} />
+          ))}
+        </motion.div>
+      )}
 
-      {/* Image Modal */}
       <Dialog open={!!selectedImage} onOpenChange={closeModal}>
         <DialogContent className="max-w-3xl">
           {selectedImage && (
@@ -103,26 +102,25 @@ export default function ImageGrid() {
                 src={selectedImage.url || "/placeholder.svg"}
                 alt={selectedImage.alt}
                 className="rounded-lg mb-4 max-w-full"
+                loading="lazy"
               />
               <p className="text-center text-sm text-gray-600 mb-4">{selectedImage.alt}</p>
               <h2 className="text-xl font-semibold mb-4">Similar Images</h2>
               <div className="grid grid-cols-3 gap-4">
-                {staticImages
-                  .filter((img) => img.id !== selectedImage.id)
-                  .slice(0, 3)
-                  .map((image) => (
-                    <div
-                      key={image.id}
-                      className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-75 transition-opacity"
-                      onClick={() => handleImageClick(image)}
-                    >
-                      <img
-                        src={image.url || "/placeholder.svg"}
-                        alt={image.alt}
-                        className="rounded-lg object-cover w-full h-full"
-                      />
-                    </div>
-                  ))}
+                {similarImages.map((image: { id: string; url: string; alt: string }) => (
+                  <div
+                    key={image.id}
+                    className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-75 transition-opacity"
+                    onClick={() => handleImageClick(image)}
+                  >
+                    <img
+                      src={image.url || "/placeholder.svg"}
+                      alt={image.alt}
+                      className="rounded-lg object-cover w-full h-full"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           )}
@@ -154,16 +152,29 @@ function LazyImageCard({ image, onClick }: { image: { id: string; url: string; a
         visible: { opacity: 1, y: 0 },
       }}
     >
-      {/* Trust Icon */}
       <div className="absolute top-2 right-2 z-10">
         <LucideShieldCheck className="text-blue-600 bg-white p-1 rounded-full shadow-md" size={24} />
       </div>
-      <img
-        src={image.url || "/placeholder.svg"}
-        alt={image.alt}
-        className="rounded-lg object-cover w-full h-auto"
-        loading="lazy"
-      />
+      {inView ? (
+        <img
+          src={image.url || "/placeholder.svg"}
+          alt={image.alt}
+          className="rounded-lg object-cover w-full h-auto"
+          loading="lazy"
+        />
+      ) : (
+        <div className="bg-gray-200 rounded-lg w-full h-56 animate-pulse"></div>
+      )}
     </motion.div>
+  );
+}
+
+function SkeletonCard() {
+  return (
+    <div className="p-4 bg-gray-100 rounded-lg shadow-md animate-pulse">
+      <div className="h-40 bg-gray-200 rounded-md mb-3"></div>
+      <div className="h-4 bg-gray-200 rounded-md mb-2 w-3/4"></div>
+      <div className="h-4 bg-gray-200 rounded-md w-1/2"></div>
+    </div>
   );
 }
