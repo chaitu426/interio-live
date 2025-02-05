@@ -29,7 +29,7 @@ export default function Footer() {
             <li>
               Interio.live,
               <br />
-              India, MH 10001
+              India, MH 411014
             </li>
           </ul>
         </div>

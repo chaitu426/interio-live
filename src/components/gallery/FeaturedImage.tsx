@@ -59,6 +59,7 @@ export default function FeaturedImage({
       <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-100 hover:shadow-xl">
         <img
           src={imageUrl}
+          
           alt={title}
           className="w-full h-48 object-cover transform transition duration-300 hover:scale-110 cursor-pointer"
           loading="lazy" // Lazy loading added here
