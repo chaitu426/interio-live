@@ -172,9 +172,9 @@ function LazyImageCard({ image, onClick }: { image: { id: string; url: string; a
 function SkeletonCard() {
   return (
     <div className="p-4 bg-gray-100 rounded-lg shadow-md animate-pulse">
-      <div className="h-40 bg-gray-200 rounded-md mb-3"></div>
-      <div className="h-4 bg-gray-200 rounded-md mb-2 w-3/4"></div>
-      <div className="h-4 bg-gray-200 rounded-md w-1/2"></div>
+      <div className="h-40 bg-gray-100 rounded-md mb-3"></div>
+      <div className="h-4 bg-gray-100 rounded-md mb-2 w-3/4"></div>
+      <div className="h-4 bg-gray-100 rounded-md w-1/2"></div>
     </div>
   );
 }
