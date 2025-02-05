@@ -29,8 +29,25 @@ export default function FeaturedImage({
     setIsModalOpen(false);
   };
 
+  function cleanImageUrl(url: string) {
+    // Ensure the URL starts with the base domain
+    const baseUrl = "https://www.interio.live";
+    let cleanUrl = url.startsWith("http") ? url : `${baseUrl}${url}`;
+  
+    // Replace spaces with %20
+    cleanUrl = cleanUrl.replace(/\s/g, '%20');
+  
+    // Remove the leading full stop if it exists
+    if (cleanUrl.startsWith(`${baseUrl}.`)) {
+      cleanUrl = cleanUrl.replace(`${baseUrl}.`, baseUrl);
+    }
+  
+    return cleanUrl;
+  }
+  
+
   const handleContactClick = () => {
-    const message = `Hello, I am interested in your product: ${title}. \n\nDescription: ${description} \n\nImage: ${selectedImage}`;
+    const message = `Hello, I am interested in your product: ${title}. \n\nDescription: ${description} \n\nImage: ${cleanImageUrl(selectedImage)}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/7020769985?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
