@@ -18,7 +18,7 @@ export default function PricingCard({ title, subtitle, price, features }: Pricin
     const featuresList = features.map(feature => `# ${feature.text}`).join('\n');
     const message = ` Hello, I'm interested in your pricing plan:\n\nTitle: ${title}\nSubtitle: ${subtitle}\nPrice: ₹${price}/month\n\nFeatures:\n${featuresList}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/8446293227?text=${encodedMessage}`; // Replace with your WhatsApp number
+    const whatsappUrl = `https://wa.me/7020769985?text=${encodedMessage}`; // Replace with your WhatsApp number
     window.open(whatsappUrl, "_blank"); // Open in a new tab
   };
 

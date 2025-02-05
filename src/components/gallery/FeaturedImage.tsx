@@ -32,7 +32,7 @@ export default function FeaturedImage({
   const handleContactClick = () => {
     const message = `Hello, I am interested in your product: ${title}. \n\nDescription: ${description} \n\nImage: ${selectedImage}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/8446293227?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/7020769985?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
   };
 

@@ -25,7 +25,7 @@ export default function Footer() {
           <h4 className="text-lg font-semibold mb-4">HEADQUARTERS</h4>
           <ul className="space-y-2 text-gray-400">
             <li>interio.livesupp0rt@gmail.com</li>
-            <li>+91 (555) 987-6543</li>
+            <li>+91 7020769985</li>
             <li>
               Interio.live,
               <br />

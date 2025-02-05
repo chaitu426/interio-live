@@ -10,7 +10,7 @@ const demo = "/images/demo.jpg";
 export default function Contact() {
   const handleWhatsAppRedirect = () => {
     const message = encodeURIComponent("Hello, I'm interested in your interior design services.")
-    window.open(`https://wa.me/${import.meta.env.VITE_MOBILE_NO}?text=${message}`, '_blank')
+    window.open(`https://wa.me/7020769985?text=${message}`, '_blank')
   }
 
   return (
