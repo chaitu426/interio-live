@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Carousel from "../components/Carousel";
+import ScrollCards from "../components/Carousel";
 import PricingSection from "../components/sections/PricingSection";
 import FeaturedSection from "../components/sections/FeaturedSection";
 import Howwework from "../components/Howwework";
@@ -38,7 +38,7 @@ export default function Home() {
             </div>
           ) : (
             <>
-              <Carousel />
+              <ScrollCards />
               <FeaturedSection />
               <Howwework />
               <PricingSection />

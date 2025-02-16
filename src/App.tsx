@@ -9,6 +9,7 @@ import Owrwork from './pages/Owrwork';
 import Privacy from "./pages/Privacy";
 import Terms from './pages/Terms';
 import Portfolio from './pages/Portfolio';
+import Interio_admain from './pages/Interio_admain';
 
 
 
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/interio-admain" element={<Interio_admain />} />
         </Routes>
         <Footer />
       </div>

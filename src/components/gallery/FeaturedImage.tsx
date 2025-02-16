@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../ui/Button";
+import { IKContext, IKImage } from 'imagekitio-react';
 
 interface FeaturedImageProps {
   imageUrl: string;
@@ -53,11 +54,14 @@ export default function FeaturedImage({
     window.open(whatsappUrl, "_blank");
   };
 
+  const urlEndpoint = 'https://ik.imagekit.io/81grncrg2';
+
   return (
     <>
       {/* Card Component */}
+      <IKContext urlEndpoint={urlEndpoint}>
       <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-100 hover:shadow-xl">
-        <img
+        <IKImage
           src={imageUrl}
           
           alt={title}
@@ -89,7 +93,7 @@ export default function FeaturedImage({
             <div className="p-6 max-h-[80vh] overflow-y-auto">
               {/* Image Section */}
               <div className="mb-6">
-                <img
+                <IKImage
                   src={selectedImage}
                   alt={title}
                   className="w-full h-64 md:h-80 object-cover rounded-lg"
@@ -97,7 +101,7 @@ export default function FeaturedImage({
                 />
                 <div className="flex space-x-2 overflow-x-auto mt-4">
                   {[imageUrl, ...additionalImages].map((image, index) => (
-                    <img
+                    <IKImage
                       key={index}
                       src={image}
                       alt={`Thumbnail ${index + 1}`}
@@ -138,6 +142,7 @@ export default function FeaturedImage({
           </div>
         </div>
       )}
+      </IKContext>
     </>
   );
 }

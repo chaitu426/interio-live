@@ -1,5 +1,9 @@
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { firestore } from '../firebase';
+import {addDoc , collection} from '@firebase/firestore';
+
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -7,6 +11,27 @@ export default function Footer() {
       top: 0,
       behavior: 'smooth', // For smooth scrolling
     });
+  };
+
+  const enteremail = useRef<HTMLInputElement>(null);
+
+  const ref = collection(firestore, 'emails');
+
+
+
+  const handelSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (enteremail.current) {
+      try {
+        addDoc(ref, {
+          email: enteremail.current.value,
+        });
+      } catch (e) {
+        console.error('Error adding document  : ', e);
+      }
+      enteremail.current.value = '';
+    }
+   
   };
 
   return (
@@ -59,9 +84,10 @@ export default function Footer() {
           <p className="text-gray-400 mb-4">
             Join our newsletter to get the latest updates on design trends and tips.
           </p>
-          <form className="flex flex-col space-y-4">
+          <form className="flex flex-col space-y-4" onSubmit={handelSubmit}>
             <input
               type="email"
+              ref={enteremail}
               placeholder="Enter your email"
               className="px-4 py-2 bg-gray-800 text-white border border-gray-600 rounded focus:outline-none"
             />

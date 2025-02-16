@@ -5,51 +5,67 @@ import { Dialog, DialogContent } from "./ui/dialog";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { LucideShieldCheck } from "lucide-react"; // Trust icon
+import { IKContext, IKImage } from 'imagekitio-react';
 
 const staticImages = [
-  { id: "1", url: "/images/badroom.webp", alt: "Beautiful landscape with mountains and a lake",  },
-  { id: "2", url: "/images/degine1.webp", alt: "Busy city street at night with bright lights" },
-  { id: "21", url: "/images/image (15).png", alt: "Close-up of a majestic lion" },
-  { id: "22", url: "/images/image (16).png", alt: "Modern smartphone with app icons" },
-  { id: "23", url: "/images/image (17).png", alt: "Serene beach scene with palm trees" },
-  { id: "24", url: "/images/image (28).png", alt: "Aerial view of a modern cityscape" },
-  { id: "4", url: "/images/image (2).png", alt: "Modern smartphone with app icons" },
-  { id: "5", url: "/images/image (3).png", alt: "Serene beach scene with palm trees" },
-  { id: "6", url: "/images/image (4).png", alt: "Aerial view of a modern cityscape" },
-  { id: "7", url: "/images/degine2.webp", alt: "Gourmet burger with fries" },
-  { id: "8", url: "/images/image (5).png", alt: "Close-up of a majestic lion" },
-  { id: "61", url: "/images/image (6).png", alt: "Aerial view of a modern cityscape" },
-  { id: "71", url: "/images/degine2.webp", alt: "Gourmet burger with fries" },
-  { id: "8", url: "/images/image (7).png", alt: "Close-up of a majestic lion" },
-  { id: "9", url: "/images/image (8).png", alt: "Modern smartphone with app icons" },
-  { id: "10", url: "/images/image (9).png", alt: "Serene beach scene with palm trees" },
-  { id: "12", url: "/images/image (10).png", alt: "Aerial view of a modern cityscape" },
-  { id: "13", url: "/images/degine2.webp", alt: "Gourmet burger with fries" },
-  { id: "14", url: "/images/badroom.webp", alt: "Beautiful landscape with mountains and a lake" },
-  { id: "15", url: "/images/degine1.webp", alt: "Busy city street at night with bright lights" },
-  { id: "16", url: "/images/image (11).png", alt: "Colorful plate of fresh fruits and vegetables" },
-  { id: "17", url: "/images/image (12).png", alt: "Modern smartphone with app icons" },
-  { id: "18", url: "/images/image (13).png", alt: "Serene beach scene with palm trees" },
-  { id: "19", url: "/images/image (14).png", alt: "Aerial view of a modern cityscape" },
-  { id: "20", url: "/images/degine2.webp", alt: "Gourmet burger with fries" },
-  { id: "21", url: "/images/image (15).png", alt: "Close-up of a majestic lion" },
-  { id: "22", url: "/images/image (16).png", alt: "Modern smartphone with app icons" },
-  { id: "23", url: "/images/image (17).png", alt: "Serene beach scene with palm trees" },
-  { id: "24", url: "/images/image (18).png", alt: "Aerial view of a modern cityscape" },
-  { id: "21", url: "/images/image (19).png", alt: "Close-up of a majestic lion" },
-  { id: "22", url: "/images/image (20).png", alt: "Modern smartphone with app icons" },
+
+  { id: "1", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0008.jpg?updatedAt=1739701952784", alt: "Beautiful landscape with mountains and a lake",  },
+  { id: "2", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0005.jpg?updatedAt=1739701926417", alt: "Busy city street at night with bright lights" },
+  { id: "21", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0013.jpg?updatedAt=1739701952820", alt: "Close-up of a majestic lion" },
+  { id: "22", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0023.jpg?updatedAt=1739701952940", alt: "Modern smartphone with app icons" },
+  { id: "23", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0019.jpg?updatedAt=1739701952880", alt: "Serene beach scene with palm trees" },
+  { id: "24", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0029.jpg?updatedAt=1739701957121", alt: "Aerial view of a modern cityscape" },
+  { id: "4", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0028.jpg?updatedAt=1739701957034", alt: "Modern smartphone with app icons" },
+  { id: "5", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0030.jpg?updatedAt=1739701957143", alt: "Serene beach scene with palm trees" },
+  { id: "6", url: "https://ik.imagekit.io/81grncrg2/IMG-20250210-WA0007.jpg?updatedAt=1739701926356", alt: "Aerial view of a modern cityscape" },
+
+
+
+
+
+
+
+  { id: "1", url: "https://ik.imagekit.io/81grncrg2/image%20(29).png?updatedAt=1739685486099", alt: "Beautiful landscape with mountains and a lake",  },
+  { id: "2", url: "https://ik.imagekit.io/81grncrg2/image(7).png?updatedAt=1739685486072", alt: "Busy city street at night with bright lights" },
+  { id: "21", url: "https://ik.imagekit.io/81grncrg2/image%20(27).png?updatedAt=1739685485792", alt: "Close-up of a majestic lion" },
+  { id: "22", url: "https://ik.imagekit.io/81grncrg2/image%20(26).png?updatedAt=1739685485231", alt: "Modern smartphone with app icons" },
+  { id: "23", url: "https://ik.imagekit.io/81grncrg2/image%20(28).png?updatedAt=1739685485152", alt: "Serene beach scene with palm trees" },
+  { id: "24", url: "https://ik.imagekit.io/81grncrg2/IMG-20250127-WA0007.jpg?updatedAt=1739685484288", alt: "Aerial view of a modern cityscape" },
+  { id: "4", url: "https://ik.imagekit.io/81grncrg2/IMG-20250126-WA0025.jpg?updatedAt=1739685483273", alt: "Modern smartphone with app icons" },
+  { id: "5", url: "https://ik.imagekit.io/81grncrg2/image%20(25).png?updatedAt=1739685481763", alt: "Serene beach scene with palm trees" },
+  { id: "6", url: "https://ik.imagekit.io/81grncrg2/image%20(30).png?updatedAt=1739685478266", alt: "Aerial view of a modern cityscape" },
+  { id: "7", url: "https://ik.imagekit.io/81grncrg2/image%20(24).png?updatedAt=1739685476830", alt: "Gourmet burger with fries" },
+  { id: "8", url: "https://ik.imagekit.io/81grncrg2/image%20(22).png?updatedAt=1739685471715", alt: "Close-up of a majestic lion" },
+  { id: "61", url: "https://ik.imagekit.io/81grncrg2/image%20(23).png?updatedAt=1739685471194", alt: "Aerial view of a modern cityscape" },
+  { id: "71", url: "https://ik.imagekit.io/81grncrg2/image%20(22)-min.png?updatedAt=1739685471005", alt: "Gourmet burger with fries" },
+  { id: "8", url: "https://ik.imagekit.io/81grncrg2/image%20(21).png?updatedAt=1739685470863", alt: "Close-up of a majestic lion" },
+  { id: "9", url: "https://ik.imagekit.io/81grncrg2/image%20(20).png?updatedAt=1739685465762", alt: "Modern smartphone with app icons" },
+  { id: "10", url: "https://ik.imagekit.io/81grncrg2/image%20(19).png?updatedAt=1739685465507", alt: "Serene beach scene with palm trees" },
+  { id: "12", url: "https://ik.imagekit.io/81grncrg2/image%20(18).png?updatedAt=1739685464819", alt: "Aerial view of a modern cityscape" },
+  { id: "13", url: "https://ik.imagekit.io/81grncrg2/image%20(17).png?updatedAt=1739685464430", alt: "Gourmet burger with fries" },
+  { id: "14", url: "https://ik.imagekit.io/81grncrg2/image%20(15).png?updatedAt=1739685461674", alt: "Beautiful landscape with mountains and a lake" },
+  { id: "15", url: "https://ik.imagekit.io/81grncrg2/image%20(16).png?updatedAt=1739685461078", alt: "Busy city street at night with bright lights" },
+  { id: "16", url: "https://ik.imagekit.io/81grncrg2/image%20(10).png?updatedAt=1739685459887", alt: "Colorful plate of fresh fruits and vegetables" },
+  { id: "17", url: "https://ik.imagekit.io/81grncrg2/image%20(14).png?updatedAt=1739685458894", alt: "Modern smartphone with app icons" },
+  { id: "18", url: "https://ik.imagekit.io/81grncrg2/image%20(11).png?updatedAt=1739685458129", alt: "Serene beach scene with palm trees" },
+  { id: "19", url: "https://ik.imagekit.io/81grncrg2/image%20(12).png?updatedAt=1739685453829", alt: "Aerial view of a modern cityscape" },
+  { id: "20", url: "https://ik.imagekit.io/81grncrg2/image%20(9).png?updatedAt=1739685437629", alt: "Gourmet burger with fries" },
+  { id: "21", url: "https://ik.imagekit.io/81grncrg2/image%20(8).png?updatedAt=1739685434246", alt: "Close-up of a majestic lion" },
+  { id: "22", url: "https://ik.imagekit.io/81grncrg2/image%20(6).png?updatedAt=1739685432522", alt: "Modern smartphone with app icons" },
+  { id: "23", url: "https://ik.imagekit.io/81grncrg2/image%20(5).png?updatedAt=1739685428078", alt: "Serene beach scene with palm trees" },
+  { id: "24", url: "https://ik.imagekit.io/81grncrg2/image%20(4).png?updatedAt=1739685425617", alt: "Aerial view of a modern cityscape" },
+  { id: "21", url: "https://ik.imagekit.io/81grncrg2/image%20(2).png?updatedAt=1739685420962", alt: "Close-up of a majestic lion" },
+  { id: "22", url: "https://ik.imagekit.io/81grncrg2/image.png?updatedAt=1739685420336", alt: "Modern smartphone with app icons" },
   
-  { id: "24", url: "/images/image (22).png", alt: "Aerial view of a modern cityscape" },
-  { id: "21", url: "/images/image (23).png", alt: "Close-up of a majestic lion" },
-  { id: "22", url: "/images/image (24).png", alt: "Modern smartphone with app icons" },
-  { id: "23", url: "/images/image (25).png", alt: "Serene beach scene with palm trees" },
-  { id: "24", url: "/images/image (26).png", alt: "Aerial view of a modern cityscape" },
-  { id: "21", url: "/images/image (27).png", alt: "Close-up of a majestic lion" },
-  { id: "22", url: "/images/image (28).png", alt: "Modern smartphone with app icons" },
-  { id: "23", url: "/images/image (29).png", alt: "Serene beach scene with palm trees" },
-  { id: "24", url: "/images/image (30).png", alt: "Aerial view of a modern cityscape" },
-  { id: "25", url: "/images/degine2.webp", alt: "Gourmet burger with fries" },
+  { id: "24", url: "https://ik.imagekit.io/81grncrg2/degine2.png?updatedAt=1739685419800", alt: "Aerial view of a modern cityscape" },
+  { id: "21", url: "https://ik.imagekit.io/81grncrg2/image%20(3).png?updatedAt=1739685419768", alt: "Close-up of a majestic lion" },
+  { id: "22", url: "https://ik.imagekit.io/81grncrg2/bathroom.png?updatedAt=1739685419279", alt: "Modern smartphone with app icons" },
+  { id: "23", url: "https://ik.imagekit.io/81grncrg2/badroom.webp?updatedAt=1739685402654", alt: "Serene beach scene with palm trees" },
+  { id: "24", url: "https://ik.imagekit.io/81grncrg2/degine1.webp?updatedAt=1739685411136", alt: "Aerial view of a modern cityscape" },
+  
 ];
+
+const urlEndpoint = 'https://ik.imagekit.io/81grncrg2';
 
 export default function ImageGrid() {
   const [selectedImage, setSelectedImage] = useState<{ id: string; url: string; alt: string } | null>(null);
@@ -98,7 +114,8 @@ export default function ImageGrid() {
         <DialogContent className="max-w-3xl">
           {selectedImage && (
             <div className="flex flex-col items-center">
-              <img
+              <IKContext urlEndpoint={urlEndpoint}>
+              <IKImage
                 src={selectedImage.url || "/placeholder.svg"}
                 alt={selectedImage.alt}
                 className="rounded-lg mb-4 max-w-full"
@@ -113,15 +130,17 @@ export default function ImageGrid() {
                     className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-75 transition-opacity"
                     onClick={() => handleImageClick(image)}
                   >
-                    <img
+                    <IKImage
                       src={image.url || "/placeholder.svg"}
                       alt={image.alt}
                       className="rounded-lg object-cover w-full h-full"
                       loading="lazy"
+                      lqip={{ active: true ,quality: 10 }}
                     />
                   </div>
                 ))}
               </div>
+              </IKContext>
             </div>
           )}
         </DialogContent>
@@ -157,7 +176,7 @@ function LazyImageCard({ image, onClick }: { image: { id: string; url: string; a
       </div>
       {inView ? (
         <img
-          src={image.url || "/placeholder.svg"}
+          src={image.url }
           alt={image.alt}
           className="rounded-lg object-cover w-full h-auto"
           loading="lazy"
