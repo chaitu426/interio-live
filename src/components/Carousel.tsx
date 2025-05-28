@@ -9,25 +9,24 @@ export const cars = [
     title: "Morden Bedroom",
     description: "bedroom design with modern style...",
     link: "https://ik.imagekit.io/81grncrg2/image%20(6).png?updatedAt=1739685432522",
-    src: "Pexels",
+    src: "interio.live",
     color: "from-blue-100 to-blue-200",
-    specs: { power: "280 HP", acceleration: "0-60 mph: 4.8s", topSpeed: "165 mph" },
   },
   {
     title: "Modern Living Room",
     description: "The living room is the heart of the home...",
     link: "https://ik.imagekit.io/81grncrg2/image%20(20).png?updatedAt=1739685465762",
-    src: "Pexels",
+    src: "interio.live",
     color: "from-red-50 to-red-100",
-    specs: { power: "552 HP", acceleration: "0-60 mph: 3.6s", topSpeed: "202 mph" },
+    
   },
   {
     title: "minimalist living room",
     description: "The living room is the heart of the home...",
     link: "https://ik.imagekit.io/81grncrg2/IMG-20250126-WA0025.jpg?updatedAt=1739685483273",
-    src: "Classic",
+    src: "interio.live",
     color: "from-indigo-50 to-indigo-100",
-    specs: { power: "550 HP", acceleration: "0-60 mph: 3.3s", topSpeed: "205 mph" },
+   
   },
   
   {
@@ -42,7 +41,7 @@ export const cars = [
     title: "morden kitchen",
     description: "kitchen design with modern style...",
     link: "https://ik.imagekit.io/81grncrg2/image%20(18).png?updatedAt=1739685464819",
-    src: "Classic",
+    src: "interio.live",
     color: "from-indigo-50 to-indigo-100",
     specs: { power: "550 HP", acceleration: "0-60 mph: 3.3s", topSpeed: "205 mph" },
   },
