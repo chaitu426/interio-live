@@ -9,14 +9,13 @@ export const cars = [
     title: "Morden Bedroom",
     description: "bedroom design with modern style...",
     link: "https://ik.imagekit.io/81grncrg2/image%20(6).png?updatedAt=1739685432522",
-    src: "interio.live",
     color: "from-blue-100 to-blue-200",
   },
   {
     title: "Modern Living Room",
     description: "The living room is the heart of the home...",
     link: "https://ik.imagekit.io/81grncrg2/image%20(20).png?updatedAt=1739685465762",
-    src: "interio.live",
+   
     color: "from-red-50 to-red-100",
     
   },
@@ -24,30 +23,21 @@ export const cars = [
     title: "minimalist living room",
     description: "The living room is the heart of the home...",
     link: "https://ik.imagekit.io/81grncrg2/IMG-20250126-WA0025.jpg?updatedAt=1739685483273",
-    src: "interio.live",
+   
     color: "from-indigo-50 to-indigo-100",
    
-  },
-  
-  {
-    title: "minimalist kitchen",
-    description: "kitchen design with modern style...",
-    link: "https://ik.imagekit.io/81grncrg2/image%20(18).png?updatedAt=1739685464819",
-    src: "Classic",
-    color: "from-indigo-50 to-indigo-100",
-    specs: { power: "550 HP", acceleration: "0-60 mph: 3.3s", topSpeed: "205 mph" },
   },
   {
     title: "morden kitchen",
     description: "kitchen design with modern style...",
     link: "https://ik.imagekit.io/81grncrg2/image%20(18).png?updatedAt=1739685464819",
-    src: "interio.live",
+    
     color: "from-indigo-50 to-indigo-100",
-    specs: { power: "550 HP", acceleration: "0-60 mph: 3.3s", topSpeed: "205 mph" },
-  },
+
+  }
 ];
 
-const Card = ({ title, description, link, src, color, specs }: any) => {
+const Card = ({ title, description, link, }: any) => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -98,9 +88,6 @@ const Card = ({ title, description, link, src, color, specs }: any) => {
           <div className="grid grid-cols-3 gap-4 mt-6">
 
           </div>
-
-          {/* Image Source */}
-          <p className="text-gray-400 text-sm mt-4">Image source: {src}</p>
         </div>
       </div>
     </motion.div>
